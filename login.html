@@ -3,9 +3,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login/Register</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0; 
+        }
+
+        .modal {
+            background: white;
+            width: 420px;
+            height: 600px; 
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            padding: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .modal-header a {
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            color: black;
+            border-bottom: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-header a.active {
+            color: black;
+            border-bottom: 2.5px solid black;
+        }
+
+        .close {
+            font-size: 30px;
+            color: #999;
+            cursor: pointer;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 13px; 
+        }
+
+        input {
+            padding: 10px;
+            font-size: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%; 
+            box-sizing: border-box; 
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus {
+            border-color: black;
+            outline: none;
+        }
+
+        button {
+            padding: 12px;
+            font-size: 15px;
+            font-weight: bold;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            box-sizing: border-box; 
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #333;
+        }
+
+        .forgot {
+            text-align: center;
+            font-size: 15px;
+            text-decoration: none;
+            font-weight: bold;
+            color: black;
+            margin: 5px 0 20px 0;
+        }
+
+        .forgot a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .or {
+            text-align: center;
+            font-size: 13px;
+            margin-top: -20px;
+            color: #aaa;
+        }
+
+        .social-login button {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 12px; 
+            font-size: 12px; 
+            border: 1px solid #ddd;
+            background: white;
+            color: #aaa;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .social-login button:last-child {
+            margin-bottom: 0; 
+        }
+
+        .google-button i {
+            margin-right: 118px; 
+        }
+        
+        .facebook-button i {
+            margin-right: 112px; 
+        }
+
+        .social-login button:hover {
+            background: #f5f5f5;
+        }
+
+        .register {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .register span {
+            font-size: 13px;
+        }
+
+.register a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            font-size: small;
+        }
+
+        .toggle-password {
+            cursor: pointer;
+            position: absolute;
+            right: 10px;
+            top: 35px;
+            color: #999;
+        }  
+    </style>
 </head>
 <body>
-    
+    <div class="modal">
+        <div class="modal-header">
+            <a href="./login.html" class="active">LOGIN</a>
+            <a href="./register.html" id="registerTab">REGISTER</a>
+            <span class="close">&times;</span>
+        </div>
+        <div class="form-container" id="formContainer">
+            <form id="loginForm">
+                <label for="phone" style="font-size: small">Mobile Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter phone number" required>
+                <label for="password" style="font-size: small">Password</label>
+                <input type="password" placeholder="Enter password" required>
+                <button type="submit">LOGIN</button>
+                <div class="forgot">
+                    <a href="#">Forgot your password?</a>
+                </div>
+                <div class="or">OR</div>
+                <div class="social-login">
+                    <button class="google-button"><i class="fa-brands fa-google"></i>Continue with Google</button>
+                    <button class="facebook-button"><i class="fa-brands fa-facebook"></i>Continue with Facebook</button>
+                </div>
+                <div class="register">
+                    <span>New? </span><a href="./register.html" id="switchToRegister">Register</a>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
+
+
+

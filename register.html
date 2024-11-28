@@ -1,69 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register Form</title>
-    <style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login/Register</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <style>
         body {
-            margin: 0;
-            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;}
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #333;
+            height: 100vh;
+            margin: 0;
         }
-        .form-container {
-            background-color: white;
-            padding: 20px 30px;
+        .modal {
+            background: white;
+            width: 420px;
+            height: 600px; 
             border-radius: 8px;
-            box-shadow: 0 4px 8px black;
-            max-width: 400px;
-            width: 100%;}
-        label {
-            display: block;
-            margin-bottom: 5px;
-            color: black;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            padding: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+        .modal-header {
             display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
         }
-        input{
-            width: 95%;
+        .modal-header a {
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            color: black;
+            border-bottom: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .modal-header a.active {
+            color: black;
+            border-bottom: 2.5px solid black;
+        }
+        .close {
+            font-size: 30px;
+            color: #999;
+            cursor: pointer;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 2px; 
+        }
+        input {
             padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid black;
-            border-radius: 4px;
+            font-size: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%; 
+            box-sizing: border-box; 
+            transition: border-color 0.3s ease;
         }
-        select{
+        input:focus {
+            border-color: black;
+            outline: none;
+        }
+        button {
+            padding: 12px;
+            font-size: 15px;
+            font-weight: bold;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            box-sizing: border-box; 
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #333;
+        }
+        .name-container {
+            display: flex; 
+            justify-content: space-between;
+        }
+        .input-box {
+            flex: 1; 
+        }     
+        .input-box label {
+            display: block; 
+            margin-bottom: 10px; 
+        }
+        .input-box:first-child {
+            margin-right: 10px; 
+        }
+        button {
+            padding: 10px;
+            font-size: 15px;
+            font-weight: bold;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            box-sizing: border-box; 
+            transition: background-color 0.3s ease;
+        }
+        label {
+            font-size: 14px;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .location-container {
+            display: flex; 
+            justify-content: space-between;
+            gap: 10px; 
+        }       
+        .location-box {
+            flex: 1; 
+        }       
+        .location-box label {
+            display: block; 
+            margin-bottom: 5px; 
+        }
+        input, select, button {
             width: 100%;
             padding: 10px;
             margin-bottom: 15px;
-            border: 1px solid black;
-            border-radius: 4px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
         }
+        .forgot {
+
+text-align: center;
+            font-size: 15px;
+            text-decoration: none;
+            font-weight: bold;
+            color: black;
+            margin: 5px 0 20px 0;
+        }
+        .forgot a {
+            text-decoration: none;
+            color: black;
+        }
+        .or {
+            text-align: center;
+            font-size: 13px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            color: #aaa;
+        }
+        .social-login button {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 12px; 
+            font-size: 12px; 
+            border: 1px solid #ddd;
+            background: white;
+            color: #aaa;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .social-login button:last-child {
+            margin-bottom: 0; 
+        }
+        .google-button i {
+            margin-right: 118px; 
+        }      
+        .facebook-button i {
+            margin-right: 112px; 
+        }
+        .social-login button:hover {
+            background: #f5f5f5;
+        }
+        .register {
+            text-align: center;
+            margin-top: 25px;
+        }
+        .register span {
+            font-size: 13px;
+        }
+        .register a {
+            text-decoration: none;
+            font-size: small;
+            color: black;
+            font-weight: bold;
+        }
+        .toggle-password {
+            cursor: pointer;
+            position: absolute;
+            right: 10px;
+            top: 35px;
+            color: #999;
+        }  
     </style>
 </head>
 <body>
-    <div class="form-container"> 
-    <h1>Register</h1>
-    <form fill="registration-form">
-        <label for="name">Full Name</label>
-        <input type="text" fill="name" name="name" placeholder="Enter your full name" required>
-        <label for="phonenumber">Phone Number </label>
-        <input type="email" fill="phonenumber" name="phonenumber" placeholder="Enter your phone number" required>
-        <label for="name">Date of Birth</label>
-        <input type="date"  placeholder=" MM/DD/YYYY">
-        <label for="email">Email</label>
-        <input type="email" fill="email" name="email" placeholder="Enter your email" required>
-        <label for="password">Password</label>
-        <input type="password" fill="password" name="password" placeholder="Enter your password" required>
-        <label for="confirm-password">Confirm Password</label>
-        <input type="email" fill="phonenumber" name="phonenumber" placeholder="Confirm your password" required>
-        <button type="submit" style="background-color: grey;width: 100px;height: 40px;border-radius: 5px;">Register</button>
-    </form>
+    <div class="modal">
+        <div class="modal-header">
+            <a href="./login.html"  id="loginTab">LOGIN</a>
+            <a href="./register.html" class="active">REGISTER</a>
+            <span class="close">&times;</span>
+        </div>
+        <div class="form-container">
+
+        <form>
+            <div class="name-container">
+                <div class="input-box">
+                    <label for="first-name">First Name</label>
+                    <input type="text" id="first-name" name="first-name" placeholder="Enter first name" required>
+                </div>
+                <div class="input-box">
+                    <label for="last-name">Last Name</label>
+                    <input type="text" id="last-name" name="last-name" placeholder="Enter last name" required>
+                </div>
+            </div>
+            <label for="phone">Mobile Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter phone number" required>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter email" required>
+            <div class="location-container">
+                <div class="location-box">
+                    <label for="country">Country</label>
+                    <select id="country" name="country" required>
+                        <option value="Cambodia">Cambodia</option>
+                    </select>
+                </div>
+                <div class="location-box">
+                    <label for="city">City/Province</label>
+                    <select id="city" name="city" required>
+                        <option value="" disabled selected></option>
+                        <option value="Phnom Penh">Phnom Penh</option>
+                        <option value="Battambang">Battambang</option>
+                        <option value="Siem Reap">Siem Reap</option>
+                        <option value="Sihanoukville">Sihanoukville</option>
+                        <option value="Kampong Cham">Kampong Cham</option>
+                        <option value="Kandal">Kandal</option>
+                        <option value="Takeo">Takeo</option>
+                        <option value="Preah Sihanouk">Preah Sihanouk</option>
+                        <option value="Kampot">Kampot</option>
+                        <option value="Koh Kong">Koh Kong</option>
+
+<option value="Pursat">Pursat</option>
+                        <option value="Prey Veng">Prey Veng</option>
+                        <option value="Svay Rieng">Svay Rieng</option>
+                        <option value="Banteay Meanchey">Banteay Meanchey</option>
+                        <option value="Oddar Meanchey">Oddar Meanchey</option>
+                        <option value="Stung Treng">Stung Treng</option>
+                        <option value="Ratanakiri">Ratanakiri</option>
+                        <option value="Mondulkiri">Mondulkiri</option>
+                        <option value="Kratie">Kratie</option>
+                        <option value="Tboung Khmum">Tboung Khmum</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit">CREATE ACCOUNT</button>
+        </form>
+        <div class="or">OR</div>
+        <div class="social-login">
+            <button class="google-button"><i class="fa-brands fa-google"></i>Continue with Google</button>
+            <button class="facebook-button"><i class="fa-brands fa-facebook"></i>Continue with Facebook</button>
+        </div>
+        <form id="registerForm" style="display: none;">
+            <input type="text" placeholder="Enter your name" required>
+            <input type="email" placeholder="Enter email" required>
+            <input type="password" placeholder="Create password" required>
+            <button type="submit">REGISTER</button>
+        </form>
+        <div class="register">
+            <span>Already have an account? </span><a href="./login.html" id="switchToLogin">Login</a>
+        </div>
     </div>
 </body>
 </html>
