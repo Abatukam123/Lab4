@@ -1,0 +1,89 @@
+body{
+    background-color: aliceblue;
+    font-family: sans-serif;
+}
+.container{
+    width: 100vw;
+    height: 100vh;
+    background-color: #192841;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.nav{
+    padding: 10px 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 600;
+}
+.mid-nav , .right-nav{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.list{
+    display: flex;
+    gap: 50px;
+}
+.search{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.search i{
+    color: #1e3050;
+    position: absolute;
+    right: -70px;
+    width: 100px;
+}
+.sign-up{
+    padding: 5px 10px;
+    border-radius: 15px;
+}
+section{
+    overflow-y: scroll;
+    font-size: large;
+}
+
+.content{
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    padding: 0 50px;
+    gap: 100px;
+}
+.size-container button{
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+.buy{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 30px;
+}
+.buy button{
+    padding:20px 150px;
+    border-radius: 10px;
+    background-color: #364FC7;
+    color: white;
+    font-size: large;
+}
+
+
+
+
+footer{
+    color: white;
+    background-color: #2D3A51;
+    display: flex;
+    justify-content: space-evenly;
+    grid-column: 1/3;
+}
+.item-footer{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
