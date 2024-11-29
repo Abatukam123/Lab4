@@ -76,7 +76,7 @@ section{
 
 
 footer{
-    color: white;
+    color: black;
     background-color: whitesmoke;
     display: flex;
     justify-content: space-evenly;
@@ -98,3 +98,12 @@ footer{
 .lol{
     margin-bottom: 100%;
 }
+.home-link {
+    text-decoration: none; 
+    color: black;
+    font-weight: bold;
+    transition: color 0.3s ease; 
+    }
+
+    .home-link:hover {
+    color: #333;}
