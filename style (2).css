@@ -5,7 +5,7 @@ body{
 .container{
     width: 100vw;
     height: 100vh;
-    background-color: #192841;
+    background-color: white;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -33,7 +33,7 @@ body{
     position: relative;
 }
 .search i{
-    color: #1e3050;
+    color: black;
     position: absolute;
     right: -70px;
     width: 100px;
@@ -67,7 +67,7 @@ section{
 .buy button{
     padding:20px 150px;
     border-radius: 10px;
-    background-color: #364FC7;
+    background-color: black;
     color: white;
     font-size: large;
 }
@@ -77,13 +77,24 @@ section{
 
 footer{
     color: white;
-    background-color: #2D3A51;
+    background-color: whitesmoke;
     display: flex;
     justify-content: space-evenly;
     grid-column: 1/3;
+    margin-top: -40%;
+    margin-bottom: 40%;
 }
 .item-footer{
     display: flex;
     align-items: center;
     gap: 5px;
+}
+.a{
+    color: black;
+}
+.pic{
+    height: 50%;
+}
+.lol{
+    margin-bottom: 100%;
 }

@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login/Register</title>
+    <title>Divine</title>
+    <link rel="icon" href="smalllogo.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body {
@@ -178,7 +179,7 @@
         <div class="modal-header">
             <a href="./login.html" class="active">LOGIN</a>
             <a href="./register.html" id="registerTab">REGISTER</a>
-            <span class="close">&times;</span>
+            <span class="close" id="closeButton">&times;</span>
         </div>
         <div class="form-container" id="formContainer">
             <form id="loginForm">
@@ -201,8 +202,11 @@
             </form>
         </div>
     </div>
+    <script>
+        const closeButton = document.getElementById("closeButton");
+        closeButton.addEventListener("click", function () {
+            window.location.href = "./index.html"; 
+        });
+    </script>
 </body>
 </html>
-
-
-
